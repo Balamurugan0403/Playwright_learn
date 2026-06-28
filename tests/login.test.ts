@@ -1,26 +1,32 @@
-import {test,expect} from '@playwright/test';
-test('Login Test',async({page})=>{
+import { test, expect } from '@playwright/test';
+
+test('Login Test', async ({ page }) => {
     await page.goto(
         process.env.BASE_URL!
     );
+
     await page.fill(
         '#username',
         process.env.USERNAME!
     );
+
     await page.fill(
         '#password',
         process.env.PASSWORD!
     );
+
     await page.click(
         'button[type="submit"]'
     );
-    
 });
-test('Invalid Test',async({page})=>){
+
+test('Invalid Test', async ({ page }) => {
     await page.goto(
         process.env.BASE_URL!
     );
+
     await page.fill(
-        #username'
-    )
-}
+        '#username',
+        ''
+    );
+});
