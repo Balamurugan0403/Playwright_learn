@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://www.demoblaze.com/');
+  await expect(page.getByRole('link', { name: 'PRODUCT STORE' })).toBeVisible();
+
+  await page.getByRole('link', { name: 'Log in' }).click();
+  await expect(page.getByRole('dialog', { name: 'Log in' })).toBeVisible();
+
+  await page.locator('#loginusername').click();
+  await page.locator('#loginusername').fill('karthiksiva');
+  await expect(page.getByRole('img', { name: 'Second slide' })).toBeVisible();
+
+  await page.locator('#loginpassword').click();
+  await page.locator('#loginpassword').fill('karthiksiva@763');
+  await expect(page.locator('#loginpassword')).toHaveValue('karthiksiva@763');
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Log in' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await expect(page.getByRole('img', { name: 'Second slide' })).toBeVisible();
+
+  await page.getByLabel('Log in').getByText('Close').click();
+  await page.getByText('PRODUCT STORE Home (current)').dblclick();
+});

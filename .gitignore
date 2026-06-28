@@ -1,8 +1,54 @@
-
-# Playwright
+# -----------------------------
+# Node.js
+# -----------------------------
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+
+# -----------------------------
+# Playwright Reports
+# -----------------------------
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# -----------------------------
+# Allure Reports
+# -----------------------------
+allure-results/
+allure-report/
+
+# -----------------------------
+# Test Artifacts
+# -----------------------------
+*.zip
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.trace
+
+# -----------------------------
+# Environment Files
+# -----------------------------
+.env
+.env.*
+
+# -----------------------------
+# IDE Files
+# -----------------------------
+.vscode/
+.idea/
+
+# -----------------------------
+# OS Files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Personal Notes
+# -----------------------------
+playwright_notes.md
+playwrightbasics.md
+playwrightbasics_02.md
